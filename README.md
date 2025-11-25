@@ -24,8 +24,8 @@ Example:
 ### Required Argument
 
 | Argument    | Description                                                                    |
-| ----------- | ------------------------------------------------------------------ ------------|
-| `<git-url>` | Any of the 6 Artemis Git URLs from the new or old exercise you want to import. |
+| ----------- | -----------------------------------------------------------------------------  |
+| `<git-url>` | Any of the 6 Artemis Git URLs from the new or old exercise you want to import  |
 
 ---
 
