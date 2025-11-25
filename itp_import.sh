@@ -1,3 +1,5 @@
+#Author: Fabian Böhm
+
 #!/usr/bin/env bash
 
 set -e
