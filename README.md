@@ -1,13 +1,11 @@
 # `itp_import.sh` — Automated Artemis Exercise Importer for ITP
 
-This script streamlines the process of importing ITP programming exercises from **Artemis @ TUM**, including:
+What this script does:
 
 - Cloning the exercise, solution, and tests repositories  
 - Cloning the corresponding old exercise repositories  
 - Updating all Gradle wrappers to version `9.0.0`  
-- Copying old Java package contents (`de.tum.cit.ase`) into the new exercise structure (`de.tum.cit.aet`)
-
-It quickly prepares a working local folder setup for ITP exercises.
+- Copying contents of the old exercises into the new exercise structure
 
 ---
 
