@@ -23,10 +23,10 @@ Example:
 
 ### Required Argument
 
-| Argument    | Description                                                        |
-| ----------- | ------------------------------------------------------------------ |
-| `<git-url>` | The Artemis Git URL of the exercise repository you want to import. |
-|             | Any of the 6 URLs from the new or old exercise work.               |
+| Argument    | Description                                                                    |
+| ----------- | ------------------------------------------------------------------ ------------|
+| `<git-url>` | Any of the 6 Artemis Git URLs from the new or old exercise you want to import. |
+
 ---
 
 ## What the Script Does
