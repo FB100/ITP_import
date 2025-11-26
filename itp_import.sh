@@ -22,14 +22,14 @@ name_file_base="${name_file_base%-solution.git}"
 name_file_base="${name_file_base%-tests.git}"
 name_file_base="${name_file_base%old}"
 
-# Extract [a-zA-Z][0-9]{2}e[0-9]{2} (case insensitive)
+# Extract Exercise name like h01e01 (case insensitive)
 name_exercise_new=$(echo "$name_file_base" | grep -oiE '[a-zA-Z][0-9]{2}[e|E][0-9]{2}' || true)
+name_exercise_old="${name_exercise_new}old"
+
 if [ -z "$name_exercise_new" ]; then
     echo "Error: could not extract exercise number (expected hXXeYY)."
     exit 1
 fi
-
-name_exercise_old="${name_exercise_new}old"
 
 name_course="${name_file_base%${name_exercise_new}}"
 
@@ -46,7 +46,7 @@ echo Creating Folders
 mkdir -p "$name_exercise_new/old"
 mkdir -p "$name_exercise_new"
 
-# --- Cloning Repositories ---
+# --- Cloning New Repositories ---
 echo 
 echo "-----"
 echo "Cloning Repositories"
@@ -54,15 +54,17 @@ repo_exercise_new="${url_base}$(echo "$name_file_base" | tr '[:lower:]' '[:upper
 repo_solution_new="${url_base}$(echo "$name_file_base" | tr '[:lower:]' '[:upper:]')/${name_file_base}-solution.git"
 repo_test_new="${url_base}$(echo "$name_file_base" | tr '[:lower:]' '[:upper:]')/${name_file_base}-tests.git"
 
-repo_exercise_old="${url_base}$(echo "$name_file_base" | tr '[:lower:]' '[:upper:]')OLD/${name_file_base}old-exercise.git"
-repo_solution_old="${url_base}$(echo "$name_file_base" | tr '[:lower:]' '[:upper:]')OLD/${name_file_base}old-solution.git"
-repo_test_old="${url_base}$(echo "$name_file_base" | tr '[:lower:]' '[:upper:]')OLD/${name_file_base}old-tests.git"
-
 cd $name_exercise_new
 
 git clone "$repo_exercise_new"
 git clone "$repo_solution_new"
 git clone "$repo_test_new"
+
+# --- Cloning Old Repositories ---
+
+repo_exercise_old="${url_base}$(echo "$name_file_base" | tr '[:lower:]' '[:upper:]')OLD/${name_file_base}old-exercise.git"
+repo_solution_old="${url_base}$(echo "$name_file_base" | tr '[:lower:]' '[:upper:]')OLD/${name_file_base}old-solution.git"
+repo_test_old="${url_base}$(echo "$name_file_base" | tr '[:lower:]' '[:upper:]')OLD/${name_file_base}old-tests.git"
 
 cd old
 git clone "$repo_exercise_old"
